@@ -1,6 +1,7 @@
-# SCOverlay-Erweiterung
-Um dieses Addon zu benutzen, benötigst Du die Hauptdatei/Programm: 
-Hier kommt ihm zum Programm https://github.com/BlugDeg/SCOverlay-Updates
+Um dieses Addon zu benutzen benoetigst du das Hauptprogramm:
+→ https://github.com/BlugDeg/SCOverlay-Updates
 
-ich habe mein allererstes Add-On erstellt und wollte das mit euch teilen
-bitte denk daran dass es nur eine Addon Erweiterung in die benötigt das Haupt Addon
+Dies ist mein erstes eigenes Addon und ich wollte es mit euch teilen.
+Bitte denke daran:
+dies ist nur eine Erweiterung / ein Addon.
+Es funktioniert nur zusammen mit dem Haupt SCOverlay Addon.
