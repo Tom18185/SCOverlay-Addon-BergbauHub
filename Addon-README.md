@@ -16,7 +16,7 @@ Das Addon funktioniert nur zusammen mit SCOverlay Core.
 
 ## Ueber das Addon
 
-Der Bergbau-Hub ist ein Addon fuer SCOverlay, speziell fuer Miner und Salvager.  
+Der Bergbau-Hub ist ein Addon Erweiterung von SCOverlay, speziell fuer Miner und Salvager.  
 Es buendelt wichtige Webseiten, Offline-Informationen und hilfreiche Werkzeuge in einem einzigen, einfach zu bedienenden Menue – ohne Alt+Tab.
 
 ---
@@ -26,7 +26,6 @@ Es buendelt wichtige Webseiten, Offline-Informationen und hilfreiche Werkzeuge i
 ### Web-Integration mit Live-Uebersetzung
 - Webseiten werden direkt im Spiel angezeigt
 - Inhalte werden automatisch live ins Deutsche uebersetzt
-- unwichtige Elemente werden ausgeblendet
 
 **Regolith Links:**
 - Bergbau-Erzliste
@@ -69,4 +68,5 @@ Alle Fenster sind verschiebbar und in der Groesse anpassbar.
 1) Lade die neueste Version dieses Addons als .zip aus **Releases**  
 2) ZIP entpacken  
 3) gesamten Ordner **BergbauHub** in folgenden Pfad kopieren:
+
 
