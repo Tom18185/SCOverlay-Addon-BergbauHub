@@ -1,7 +1,7 @@
 ---
 name: "[BUG] CitizenHaulerAddon"
-about: Create a report to help us improve
-title: ''
+about: Erstellen Sie einen Bericht, um uns bei der Verbesserung zu helfen
+title: "[BUG] CitizenHaulerAddon"
 labels: ''
 assignees: ''
 
