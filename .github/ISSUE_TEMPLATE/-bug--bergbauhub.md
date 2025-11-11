@@ -1,7 +1,7 @@
 ---
-name: "[BUG] CitizenHaulerAddon"
+name: "[BUG] BergbauHub"
 about: Erstellen Sie einen Bericht, um uns bei der Verbesserung zu helfen
-title: "[BUG] CitizenHaulerAddon"
+title: "[BUG] BergbauHub "
 labels: ''
 assignees: ''
 
