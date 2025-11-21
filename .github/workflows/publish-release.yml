@@ -1,0 +1,21 @@
+name: Publish Scheduled Release
+
+on:
+  schedule:
+    # Läuft jeden Tag um 23:40 UTC = 00:40 deutscher Zeit
+    - cron: "40 23 * * *"
+  workflow_dispatch: {}  # manuell startbar
+
+jobs:
+  publish_release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Publish draft release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: "BergbauHub 0.10.0"              # << HIER deine Release-Tag-Version eintragen
+          draft: false
+          prerelease: false
+          allowUpdates: true
+          updateOnlyUnreleased: true
