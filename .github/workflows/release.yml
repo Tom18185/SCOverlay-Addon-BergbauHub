@@ -9,7 +9,7 @@ on:
     # Führt den Workflow jeden Sonntag um 4:00 Uhr UTC aus (Beispiel)
     # Für Ihren Test: Um diese Zeile zu testen, müssten Sie eine Zeit in der nahen Zukunft eintragen.
     # z.B. '45 0 * * *' für xx:45 Uhr UTC.
-    - cron: '0 4 * * 0'
+    - cron: '30 23 * * 0'
 
 jobs:
   create_release_job:
