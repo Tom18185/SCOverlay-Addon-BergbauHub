@@ -1,10 +1,14 @@
 name: Publish Scheduled Release
 
+# Berechtigungen setzen, damit das GITHUB_TOKEN Draft-Releases veröffentlichen kann
+permissions:
+  contents: write
+
 on:
   schedule:
-    # Läuft jeden Tag um 23:40 UTC = 00:40 deutscher Zeit
-    - cron: "47 23 * * *"
-  workflow_dispatch: {}  # manuell startbar
+    # Läuft jeden Tag um 23:50 UTC = 00:50 deutscher Zeit (Winterzeit)
+    - cron: "50 23 * * *"
+  workflow_dispatch: {}  # ermöglicht manuelles Ausführen
 
 jobs:
   publish_release:
@@ -14,7 +18,7 @@ jobs:
       - name: Publish draft release
         uses: ncipollo/release-action@v1
         with:
-          tag: "BergbauHub"              # << HIER deine Release-Tag-Version eintragen
+          tag: "BergbauHub"   # <-- Dein Release-Tag
           draft: false
           prerelease: false
           allowUpdates: true
