@@ -1,0 +1,53 @@
+name: Create Release
+
+on:
+  # 1. Ermöglicht das manuelle Starten über die "Actions"-Seite auf GitHub
+  workflow_dispatch:
+
+  # 2. Führt den Workflow nach einem Zeitplan aus
+  schedule:
+    # Führt den Workflow jeden Sonntag um 4:00 Uhr UTC aus (Beispiel)
+    # Für Ihren Test: Um diese Zeile zu testen, müssten Sie eine Zeit in der nahen Zukunft eintragen.
+    # z.B. '45 0 * * *' für xx:45 Uhr UTC.
+    - cron: '0 4 * * 0'
+
+jobs:
+  create_release_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build and package Addon
+        run: zip -r BergbauHub-Addon.zip . -x ".git/*" ".github/*"
+
+      - name: Generate release name and tag
+        id: generate_ids
+        run: |
+          # Wenn der Workflow manuell gestartet wird, ist github.ref_name leer.
+          # Wenn er durch einen Tag ausgelöst wird, enthält es den Tag-Namen.
+          # Wir erstellen einen eindeutigen Namen basierend auf dem Datum für geplante/manuelle Läufe.
+          echo "TAG_NAME=build-$(date +'%Y-%m-%d-%H%M%S')" >> $GITHUB_ENV
+          echo "RELEASE_NAME=Build $(date +'%Y-%m-%d %H:%M')" >> $GITHUB_ENV
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.TAG_NAME }}
+          release_name: ${{ env.RELEASE_NAME }}
+          body: "Automatischer Build, der durch '${{ github.event_name }}' ausgelöst wurde."
+          draft: true # Erstellt den Release als Entwurf zur Überprüfung
+          prerelease: true # Markiert ihn als Pre-Release
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./BergbauHub-Addon.zip
+          asset_name: BergbauHub-Addon-${{ env.TAG_NAME }}.zip
+          asset_content_type: application/zip
